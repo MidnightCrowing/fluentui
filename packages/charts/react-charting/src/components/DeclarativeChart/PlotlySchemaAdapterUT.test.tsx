@@ -1,8 +1,8 @@
+import { isDateArray, isNumberArray, sanitizeJson } from '@fluentui/chart-utilities';
+
 import {
-  isDateArray,
-  isNumberArray,
   isMonthArray,
-  updateXValues,
+  correctYearMonth,
   getColor,
   transformPlotlyJsonToDonutProps,
   transformPlotlyJsonToVSBCProps,
@@ -13,7 +13,6 @@ import {
   transformPlotlyJsonToHeatmapProps,
   transformPlotlyJsonToSankeyProps,
   transformPlotlyJsonToGaugeProps,
-  sanitizeJson,
 } from './PlotlySchemaAdapter';
 
 const date = new Date();
@@ -62,11 +61,11 @@ describe('isDate', () => {
     expect(isDateArray(['12/1/2025', '12/11/2025'])).toBe(true);
   });
 
-  test.skip('Should return true when input array contains date in simple date Object format', () => {
-    expect(isDateArray([11 / 2 / 2025, 10 / 2 / 2025])).toBe(true);
+  test('Should return true when input array contains date in simple date Object format', () => {
+    expect(isDateArray([new Date(2025, 11, 2), new Date(2025, 10, 2)])).toBe(true);
   });
 
-  test.skip('Should return false when input array is empty', () => {
+  test('Should return false when input array is empty', () => {
     expect(isDateArray([])).toBe(false);
   });
 
@@ -102,11 +101,7 @@ describe('isMonthArray', () => {
     expect(isMonthArray([date, date.getDate() + 1, date.getDate() + 2])).toBe(false);
   });
 
-  test('Should return true when input array contains months data', () => {
-    expect(isMonthArray([10, 11, 1])).toBe(true);
-  });
-
-  test('Should return false when input array contains numeric data(apart from months 1 to 12)', () => {
+  test('Should return false when input array contains numeric data', () => {
     expect(isMonthArray([20, 30, 40])).toBe(false);
   });
 
@@ -143,29 +138,29 @@ describe('isMonthArray', () => {
   });
 });
 
-describe('updateXValues', () => {
+describe('correctYearMonth', () => {
   test('Should return dates array when input array contains months data', () => {
-    expect(updateXValues([10, 11, 1])).toStrictEqual(['10 01, 2024', '11 01, 2024', '1 01, 2025']);
+    expect(correctYearMonth([10, 11, 1])).toStrictEqual(['10 01, 2024', '11 01, 2024', '1 01, 2025']);
   });
 
   test('Should return error when input array contains invalid months', () => {
     try {
-      expect(updateXValues([10, 11, 16])).toStrictEqual([]);
+      expect(correctYearMonth([10, 11, 16])).toStrictEqual([]);
     } catch (e) {
       expect(e).toStrictEqual(TypeError("Cannot read properties of null (reading 'getMonth')"));
     }
   });
 
   test('Should return dates array when input array contains months data in MMM format', () => {
-    expect(updateXValues(['January', 'February'])).toStrictEqual(['January 01, 2025', 'February 01, 2025']);
+    expect(correctYearMonth(['January', 'February'])).toStrictEqual(['January 01, 2025', 'February 01, 2025']);
   });
 
   test('Should return dates array when input array contains months data in MM format', () => {
-    expect(updateXValues(['Jan', 'Feb'])).toStrictEqual(['Jan 01, 2025', 'Feb 01, 2025']);
+    expect(correctYearMonth(['Jan', 'Feb'])).toStrictEqual(['Jan 01, 2025', 'Feb 01, 2025']);
   });
 
   test('Should return dates array when input array is empty', () => {
-    expect(updateXValues([])).toStrictEqual([]);
+    expect(correctYearMonth([])).toStrictEqual([]);
   });
 });
 
@@ -238,11 +233,9 @@ describe('transform Plotly Json To chart Props', () => {
 
   test('transformPlotlyJsonToVBCProps - Should throw an error when we pass invalid data', () => {
     const plotlySchema = require('./tests/schema/fluent_nesteddata_test.json');
-    try {
-      expect(transformPlotlyJsonToVBCProps(plotlySchema, { current: colorMap }, true)).toMatchSnapshot();
-    } catch (e) {
-      expect(e).toStrictEqual(TypeError("Cannot read properties of undefined (reading 'forEach')"));
-    }
+    expect(() => {
+      transformPlotlyJsonToVBCProps(plotlySchema, { current: colorMap }, true);
+    }).toThrow(TypeError);
   });
 
   test('transformPlotlyJsonToScatterChartProps - Should return line chart props', () => {
@@ -252,11 +245,9 @@ describe('transform Plotly Json To chart Props', () => {
 
   test('transformPlotlyJsonToScatterChartProps - Should throw an error when we pass invalid data', () => {
     const plotlySchema = require('./tests/schema/fluent_nesteddata_test.json');
-    try {
-      expect(transformPlotlyJsonToScatterChartProps(plotlySchema, true, { current: colorMap }, true)).toMatchSnapshot();
-    } catch (e) {
-      expect(e).toStrictEqual(TypeError("Cannot read properties of undefined (reading 'map')"));
-    }
+    expect(() => {
+      transformPlotlyJsonToScatterChartProps(plotlySchema, true, { current: colorMap }, true);
+    }).toThrow(TypeError);
   });
 
   test('transformPlotlyJsonToScatterChartProps - Should return area chart props', () => {
@@ -273,13 +264,9 @@ describe('transform Plotly Json To chart Props', () => {
 
   test('transformPlotlyJsonToHorizontalBarWithAxisProps - Should throw an error when we pass invalid data', () => {
     const plotlySchema = require('./tests/schema/fluent_nesteddata_test.json');
-    try {
-      expect(
-        transformPlotlyJsonToHorizontalBarWithAxisProps(plotlySchema, { current: colorMap }, true),
-      ).toMatchSnapshot();
-    } catch (e) {
-      expect(e).toStrictEqual(TypeError("Cannot read properties of undefined (reading 'map')"));
-    }
+    expect(() => {
+      transformPlotlyJsonToHorizontalBarWithAxisProps(plotlySchema, { current: colorMap }, true);
+    }).toThrow(TypeError);
   });
 
   test('transformPlotlyJsonToHeatmapProps - Should return heatmap chart props', () => {

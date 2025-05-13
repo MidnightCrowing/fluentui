@@ -14,12 +14,7 @@ import {
 import { Callout, DirectionalHint } from '@fluentui/react/lib/Callout';
 import { FocusZone, FocusZoneDirection } from '@fluentui/react-focus';
 import { convertToLocaleString } from '../../utilities/locale-util';
-import {
-  ChartHoverCard,
-  formatValueWithSIPrefix,
-  getAccessibleDataObject,
-  getNextGradient,
-} from '../../utilities/index';
+import { ChartHoverCard, formatValueLimitWidth, getAccessibleDataObject, getNextGradient } from '../../utilities/index';
 import { FocusableTooltipText } from '../../utilities/FocusableTooltipText';
 
 const getClassNames = classNamesFunction<IMultiStackedBarChartStyleProps, IMultiStackedBarChartStyles>();
@@ -148,6 +143,7 @@ export class MultiStackedBarChartBase extends React.Component<IMultiStackedBarCh
             directionalHint={DirectionalHint.topAutoEdge}
             id={this._calloutId}
             onDismiss={this._closeCallout}
+            // eslint-disable-next-line @typescript-eslint/no-deprecated
             preventDismissOnLostFocus={true}
             /** Keep the callout updated with details of focused/hovered bar */
             shouldUpdateWhenHidden={true}
@@ -363,7 +359,7 @@ export class MultiStackedBarChartBase extends React.Component<IMultiStackedBarCh
             aria-label={`Total: ${barLabel}`}
             role="img"
           >
-            {formatValueWithSIPrefix(barLabel)}
+            {formatValueLimitWidth(barLabel)}
           </text>,
         );
       }
@@ -460,7 +456,7 @@ export class MultiStackedBarChartBase extends React.Component<IMultiStackedBarCh
           refSelected: obj.refElement,
           /** Show the callout if highlighted bar is focused and Hide it if unhighlighted bar is focused */
           isCalloutVisible: this.state.selectedLegend === '' || this.state.selectedLegend === point.legend!,
-          calloutLegend: point.legend!,
+          calloutLegend: point.legend ? point.legend : point.placeHolder ? 'Remaining' : '',
           dataForHoverCard: pointData,
           color,
           xCalloutValue: point.xAxisCalloutData!,
@@ -604,7 +600,7 @@ export class MultiStackedBarChartBase extends React.Component<IMultiStackedBarCh
         refSelected: mouseEvent,
         /** Show the callout if highlighted bar is hovered and Hide it if unhighlighted bar is hovered */
         isCalloutVisible: this.state.selectedLegend === '' || this.state.selectedLegend === point.legend!,
-        calloutLegend: point.legend!,
+        calloutLegend: point.legend ? point.legend : point.placeHolder ? 'Remaining' : '',
         dataForHoverCard: pointData,
         color,
         xCalloutValue: point.xAxisCalloutData!,

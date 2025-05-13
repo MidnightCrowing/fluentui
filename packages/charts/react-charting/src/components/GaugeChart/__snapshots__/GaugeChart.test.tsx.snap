@@ -9,6 +9,9 @@ exports[`GaugeChart interaction and accessibility tests should show a callout wh
         {
           -moz-osx-font-smoothing: grayscale;
           -webkit-font-smoothing: antialiased;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
           font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
           font-size: 14px;
           font-weight: 400;
@@ -49,6 +52,9 @@ exports[`GaugeChart interaction and accessibility tests should show a callout wh
                   font-size: 12px;
                   font-weight: 600;
                 }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
+                }
             role="img"
             text-anchor="end"
             x="54"
@@ -64,6 +70,9 @@ exports[`GaugeChart interaction and accessibility tests should show a callout wh
                   fill: #323130;
                   font-size: 12px;
                   font-weight: 600;
+                }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
                 }
             role="img"
             text-anchor="start"
@@ -154,6 +163,9 @@ exports[`GaugeChart interaction and accessibility tests should show a callout wh
                     fill: #323130;
                     font-size: 20px;
                     font-weight: 600;
+                  }
+                  @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                    fill: CanvasText;
                   }
               data-is-focusable="true"
               id="tooltip-host4"
@@ -654,8 +666,8 @@ exports[`GaugeChart interaction and accessibility tests should show a callout wh
                               font-weight: 400;
                               line-height: 16px;
                             }
-                            @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& {
-                              color: rgb(255, 255, 255);
+                            @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                              color: CanvasText;
                             }
                       >
                          
@@ -672,8 +684,8 @@ exports[`GaugeChart interaction and accessibility tests should show a callout wh
                               font-weight: bold;
                               line-height: 22px;
                             }
-                            @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& {
-                              color: rgb(255, 255, 255);
+                            @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                              color: CanvasText;
                             }
                       >
                         0 - 33
@@ -719,8 +731,8 @@ exports[`GaugeChart interaction and accessibility tests should show a callout wh
                               font-weight: 400;
                               line-height: 16px;
                             }
-                            @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& {
-                              color: rgb(255, 255, 255);
+                            @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                              color: CanvasText;
                             }
                       >
                          
@@ -737,8 +749,8 @@ exports[`GaugeChart interaction and accessibility tests should show a callout wh
                               font-weight: bold;
                               line-height: 22px;
                             }
-                            @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& {
-                              color: rgb(255, 255, 255);
+                            @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                              color: CanvasText;
                             }
                       >
                         33 - 67
@@ -784,8 +796,8 @@ exports[`GaugeChart interaction and accessibility tests should show a callout wh
                               font-weight: 400;
                               line-height: 16px;
                             }
-                            @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& {
-                              color: rgb(255, 255, 255);
+                            @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                              color: CanvasText;
                             }
                       >
                          
@@ -802,8 +814,8 @@ exports[`GaugeChart interaction and accessibility tests should show a callout wh
                               font-weight: bold;
                               line-height: 22px;
                             }
-                            @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& {
-                              color: rgb(255, 255, 255);
+                            @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                              color: CanvasText;
                             }
                       >
                         67 - 100
@@ -828,6 +840,9 @@ exports[`GaugeChart snapshot tests should not render min and max values of the g
       {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
         font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
         font-size: 14px;
         font-weight: 400;
@@ -959,6 +974,9 @@ exports[`GaugeChart snapshot tests should not render min and max values of the g
                   fill: #323130;
                   font-size: 20px;
                   font-weight: 600;
+                }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
                 }
             data-is-focusable={false}
             id="tooltip-host4"
@@ -1372,6 +1390,9 @@ exports[`GaugeChart snapshot tests should not render the legends when the hideLe
       {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
         font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
         font-size: 14px;
         font-weight: 400;
@@ -1415,6 +1436,9 @@ exports[`GaugeChart snapshot tests should not render the legends when the hideLe
                 font-size: 12px;
                 font-weight: 600;
               }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
+              }
           role="img"
           textAnchor="end"
           x={52}
@@ -1430,6 +1454,9 @@ exports[`GaugeChart snapshot tests should not render the legends when the hideLe
                 fill: #323130;
                 font-size: 12px;
                 font-weight: 600;
+              }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
               }
           role="img"
           textAnchor="start"
@@ -1536,6 +1563,9 @@ exports[`GaugeChart snapshot tests should not render the legends when the hideLe
                   font-size: 20px;
                   font-weight: 600;
                 }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
+                }
             data-is-focusable={false}
             id="tooltip-host4"
             onBlurCapture={[Function]}
@@ -1563,6 +1593,9 @@ exports[`GaugeChart snapshot tests should render GaugeChart correctly 1`] = `
       {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
         font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
         font-size: 14px;
         font-weight: 400;
@@ -1606,6 +1639,9 @@ exports[`GaugeChart snapshot tests should render GaugeChart correctly 1`] = `
                 font-size: 12px;
                 font-weight: 600;
               }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
+              }
           role="img"
           textAnchor="end"
           x={54}
@@ -1621,6 +1657,9 @@ exports[`GaugeChart snapshot tests should render GaugeChart correctly 1`] = `
                 fill: #323130;
                 font-size: 12px;
                 font-weight: 600;
+              }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
               }
           role="img"
           textAnchor="start"
@@ -1726,6 +1765,9 @@ exports[`GaugeChart snapshot tests should render GaugeChart correctly 1`] = `
                   fill: #323130;
                   font-size: 20px;
                   font-weight: 600;
+                }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
                 }
             data-is-focusable={false}
             id="tooltip-host4"
@@ -2152,6 +2194,9 @@ exports[`GaugeChart snapshot tests should render GaugeChart correctly in dark th
         {
           -moz-osx-font-smoothing: grayscale;
           -webkit-font-smoothing: antialiased;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
           font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
           font-size: 14px;
           font-weight: 400;
@@ -2195,6 +2240,9 @@ exports[`GaugeChart snapshot tests should render GaugeChart correctly in dark th
                   font-size: 12px;
                   font-weight: 600;
                 }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
+                }
             role="img"
             textAnchor="end"
             x={54}
@@ -2210,6 +2258,9 @@ exports[`GaugeChart snapshot tests should render GaugeChart correctly in dark th
                   fill: #f3f2f1;
                   font-size: 12px;
                   font-weight: 600;
+                }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
                 }
             role="img"
             textAnchor="start"
@@ -2315,6 +2366,9 @@ exports[`GaugeChart snapshot tests should render GaugeChart correctly in dark th
                     fill: #f3f2f1;
                     font-size: 20px;
                     font-weight: 600;
+                  }
+                  @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                    fill: CanvasText;
                   }
               data-is-focusable={false}
               id="tooltip-host7"
@@ -2729,6 +2783,9 @@ exports[`GaugeChart snapshot tests should render GaugeChart correctly when the l
       {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
         font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
         font-size: 14px;
         font-weight: 400;
@@ -2772,6 +2829,9 @@ exports[`GaugeChart snapshot tests should render GaugeChart correctly when the l
                 font-size: 12px;
                 font-weight: 600;
               }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
+              }
           role="img"
           textAnchor="end"
           x={-54}
@@ -2787,6 +2847,9 @@ exports[`GaugeChart snapshot tests should render GaugeChart correctly when the l
                 fill: #323130;
                 font-size: 12px;
                 font-weight: 600;
+              }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
               }
           role="img"
           textAnchor="start"
@@ -2892,6 +2955,9 @@ exports[`GaugeChart snapshot tests should render GaugeChart correctly when the l
                   fill: #323130;
                   font-size: 20px;
                   font-weight: 600;
+                }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
                 }
             data-is-focusable={false}
             id="tooltip-host4"
@@ -3305,6 +3371,9 @@ exports[`GaugeChart snapshot tests should render a color from DataVizPalette for
       {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
         font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
         font-size: 14px;
         font-weight: 400;
@@ -3348,6 +3417,9 @@ exports[`GaugeChart snapshot tests should render a color from DataVizPalette for
                 font-size: 12px;
                 font-weight: 600;
               }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
+              }
           role="img"
           textAnchor="end"
           x={54}
@@ -3363,6 +3435,9 @@ exports[`GaugeChart snapshot tests should render a color from DataVizPalette for
                 fill: #323130;
                 font-size: 12px;
                 font-weight: 600;
+              }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
               }
           role="img"
           textAnchor="start"
@@ -3449,6 +3524,9 @@ exports[`GaugeChart snapshot tests should render a color from DataVizPalette for
                   fill: #323130;
                   font-size: 20px;
                   font-weight: 600;
+                }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
                 }
             data-is-focusable={false}
             id="tooltip-host3"
@@ -3758,6 +3836,9 @@ exports[`GaugeChart snapshot tests should render a placeholder segment when the 
       {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
         font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
         font-size: 14px;
         font-weight: 400;
@@ -3801,6 +3882,9 @@ exports[`GaugeChart snapshot tests should render a placeholder segment when the 
                 font-size: 12px;
                 font-weight: 600;
               }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
+              }
           role="img"
           textAnchor="end"
           x={54}
@@ -3816,6 +3900,9 @@ exports[`GaugeChart snapshot tests should render a placeholder segment when the 
                 fill: #323130;
                 font-size: 12px;
                 font-weight: 600;
+              }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
               }
           role="img"
           textAnchor="start"
@@ -3902,6 +3989,9 @@ exports[`GaugeChart snapshot tests should render a placeholder segment when the 
                   fill: #323130;
                   font-size: 20px;
                   font-weight: 600;
+                }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
                 }
             data-is-focusable={false}
             id="tooltip-host3"
@@ -4210,6 +4300,9 @@ exports[`GaugeChart snapshot tests should render the chart title correctly 1`] =
       {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
         font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
         font-size: 14px;
         font-weight: 400;
@@ -4252,6 +4345,9 @@ exports[`GaugeChart snapshot tests should render the chart title correctly 1`] =
                 fill: #323130;
                 font-size: 12px;
               }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
+              }
           textAnchor="middle"
           x={0}
           y={72}
@@ -4266,6 +4362,9 @@ exports[`GaugeChart snapshot tests should render the chart title correctly 1`] =
                 fill: #323130;
                 font-size: 12px;
                 font-weight: 600;
+              }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
               }
           role="img"
           textAnchor="end"
@@ -4282,6 +4381,9 @@ exports[`GaugeChart snapshot tests should render the chart title correctly 1`] =
                 fill: #323130;
                 font-size: 12px;
                 font-weight: 600;
+              }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
               }
           role="img"
           textAnchor="start"
@@ -4387,6 +4489,9 @@ exports[`GaugeChart snapshot tests should render the chart title correctly 1`] =
                   fill: #323130;
                   font-size: 20px;
                   font-weight: 600;
+                }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
                 }
             data-is-focusable={false}
             id="tooltip-host4"
@@ -4800,6 +4905,9 @@ exports[`GaugeChart snapshot tests should render the chart value in fraction for
       {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
         font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
         font-size: 14px;
         font-weight: 400;
@@ -4843,6 +4951,9 @@ exports[`GaugeChart snapshot tests should render the chart value in fraction for
                 font-size: 12px;
                 font-weight: 600;
               }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
+              }
           role="img"
           textAnchor="end"
           x={54}
@@ -4858,6 +4969,9 @@ exports[`GaugeChart snapshot tests should render the chart value in fraction for
                 fill: #323130;
                 font-size: 12px;
                 font-weight: 600;
+              }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
               }
           role="img"
           textAnchor="start"
@@ -4963,6 +5077,9 @@ exports[`GaugeChart snapshot tests should render the chart value in fraction for
                   fill: #323130;
                   font-size: 20px;
                   font-weight: 600;
+                }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
                 }
             data-is-focusable={false}
             id="tooltip-host4"
@@ -5376,6 +5493,9 @@ exports[`GaugeChart snapshot tests should render the sublabel correctly 1`] = `
       {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
         font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
         font-size: 14px;
         font-weight: 400;
@@ -5419,6 +5539,9 @@ exports[`GaugeChart snapshot tests should render the sublabel correctly 1`] = `
                 font-size: 12px;
                 font-weight: 600;
               }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
+              }
           role="img"
           textAnchor="end"
           x={74}
@@ -5434,6 +5557,9 @@ exports[`GaugeChart snapshot tests should render the sublabel correctly 1`] = `
                 fill: #323130;
                 font-size: 12px;
                 font-weight: 600;
+              }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
               }
           role="img"
           textAnchor="start"
@@ -5540,6 +5666,9 @@ exports[`GaugeChart snapshot tests should render the sublabel correctly 1`] = `
                   font-size: 20px;
                   font-weight: 600;
                 }
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                  fill: CanvasText;
+                }
             data-is-focusable={false}
             id="tooltip-host4"
             onBlurCapture={[Function]}
@@ -5561,6 +5690,9 @@ exports[`GaugeChart snapshot tests should render the sublabel correctly 1`] = `
                 fill: #323130;
                 font-size: 12px;
                 font-weight: 600;
+              }
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
+                fill: CanvasText;
               }
           data-is-focusable={false}
           dominantBaseline="hanging"

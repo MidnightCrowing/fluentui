@@ -17,6 +17,7 @@ const { Timezone } = require('../../scripts/constants');
 const env = require('../../config/tests');
 
 // Reference to the test plan: packages\react-charting\docs\TestPlans\Utilities\UnitTests.md
+const X_ORIGIN = 0;
 
 describe('Unit test to convert data to localized string', () => {
   test('Should return undefined when data provided is undefined', () => {
@@ -32,7 +33,7 @@ describe('Unit test to convert data to localized string', () => {
     expect(utils.convertToLocaleString('123')).toBe('123');
   });
   test('Should return localized 1234 when data is string 1234', () => {
-    expect(utils.convertToLocaleString('1234')).toBe('1,234');
+    expect(utils.convertToLocaleString('1234')).toBe('1234');
   });
   test('Should return localized Hello World when data is string Hello World', () => {
     expect(utils.convertToLocaleString('Hello World')).toBe('Hello World');
@@ -50,12 +51,18 @@ describe('Unit test to convert data to localized string', () => {
 
   test('Should return the localised data in the given culture when the input data is a number', () => {
     expect(utils.convertToLocaleString(10, 'en-GB')).toBe('10');
-    expect(utils.convertToLocaleString(2560, 'ar-SY')).toBe('٢٬٥٦٠');
+    expect(utils.convertToLocaleString(25600, 'ar-SY')).toBe('٢٥٬٦٠٠');
+  });
+
+  test('Do not localize 4 digit numbers', () => {
+    expect(utils.convertToLocaleString(1000, 'en-GB')).toBe('1000');
+    expect(utils.convertToLocaleString(2560, 'ar-SY')).toBe('2560');
+    expect(utils.convertToLocaleString('2000')).toBe('2000');
   });
 
   test('Should return the localised data when the input data is a string containing a number', () => {
     expect(utils.convertToLocaleString('10', 'en-GB')).toBe('10');
-    expect(utils.convertToLocaleString('1234', 'ar-SY')).toBe('١٬٢٣٤');
+    expect(utils.convertToLocaleString('12345', 'ar-SY')).toBe('١٢٬٣٤٥');
   });
 });
 
@@ -136,6 +143,7 @@ const createXAxisParams = (xAxisParams?: ICreateXAxisParams): utils.IXAxisParams
   return {
     xAxisElement,
     containerHeight: 100,
+    containerWidth: 100,
     ...xAxisParams,
     domainNRangeValues: {
       dStartValue: 0,
@@ -157,9 +165,8 @@ const convertXAxisResultToJson = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   result: { xScale: any; tickValues: string[] },
   isStringAxis: boolean = false,
-  tickCount: number = 6,
 ): [number, string][] => {
-  const tickValues = isStringAxis ? result.tickValues : result.xScale.ticks(tickCount);
+  const tickValues = isStringAxis ? result.tickValues : result.xScale.ticks(result.tickValues.length);
   return tickValues.map((item: number | Date | string, i: number) => [result.xScale(item), result.tickValues[i]]);
 };
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -170,7 +177,7 @@ const matchResult = (result: any) => {
 describe('createNumericXAxis', () => {
   it('should render the x-axis labels correctly', () => {
     const xAxisParams = createXAxisParams();
-    utils.createNumericXAxis(xAxisParams, utils.ChartTypes.VerticalBarChart);
+    utils.createNumericXAxis(xAxisParams, {}, utils.ChartTypes.VerticalBarChart);
     expect(xAxisParams.xAxisElement).toMatchSnapshot();
   });
 
@@ -179,7 +186,7 @@ describe('createNumericXAxis', () => {
       domainNRangeValues: { dStartValue: 0.243, dEndValue: 0.433 },
       showRoundOffXTickValues: true,
     });
-    const result = utils.createNumericXAxis(xAxisParams, utils.ChartTypes.VerticalBarChart);
+    const result = utils.createNumericXAxis(xAxisParams, {}, utils.ChartTypes.VerticalBarChart);
     matchResult(convertXAxisResultToJson(result));
   });
 
@@ -187,20 +194,26 @@ describe('createNumericXAxis', () => {
   // Tick padding refers to the space between a tick mark and its corresponding tick label.
   it('should render the x-axis labels correctly for specific tick size and padding values', () => {
     const xAxisParams = createXAxisParams({ xAxistickSize: 10, tickPadding: 5 });
-    utils.createNumericXAxis(xAxisParams, utils.ChartTypes.VerticalBarChart);
+    utils.createNumericXAxis(xAxisParams, {}, utils.ChartTypes.VerticalBarChart);
     expect(xAxisParams.xAxisElement).toMatchSnapshot();
   });
 
   it('should create the x-axis labels correctly for a specific number of ticks', () => {
     const xAxisParams = createXAxisParams({ xAxisCount: 3 });
-    const result = utils.createNumericXAxis(xAxisParams, utils.ChartTypes.VerticalBarChart);
-    matchResult(convertXAxisResultToJson(result, false, xAxisParams.xAxisCount));
+    const result = utils.createNumericXAxis(xAxisParams, {}, utils.ChartTypes.VerticalBarChart);
+    matchResult(convertXAxisResultToJson(result, false));
   });
 
   it('should render the x-axis labels correctly for horizontal bar chart with axis', () => {
     const xAxisParams = createXAxisParams();
-    utils.createNumericXAxis(xAxisParams, utils.ChartTypes.HorizontalBarChartWithAxis);
+    utils.createNumericXAxis(xAxisParams, {}, utils.ChartTypes.HorizontalBarChartWithAxis);
     expect(xAxisParams.xAxisElement).toMatchSnapshot();
+  });
+
+  it('should render fewer x-axis labels when hideTickOverlap is true and container width is small', () => {
+    const xAxisParams = createXAxisParams({ domainNRangeValues: { rEndValue: 50 }, hideTickOverlap: true });
+    const result = utils.createNumericXAxis(xAxisParams, {}, utils.ChartTypes.VerticalBarChart);
+    matchResult(convertXAxisResultToJson(result));
   });
 });
 
@@ -225,7 +238,7 @@ conditionalDescribe(isTimezoneSet(Timezone.UTC) && env === 'TEST')('createDateXA
   it('should create the x-axis labels correctly for a specific number of ticks', () => {
     const xAxisParams = createXAxisParams({ domainNRangeValues, xAxisCount: 12 });
     const result = utils.createDateXAxis(xAxisParams, {});
-    matchResult(convertXAxisResultToJson(result, false, xAxisParams.xAxisCount));
+    matchResult(convertXAxisResultToJson(result, false));
   });
 
   it('should create the x-axis labels correctly when customDateTimeFormatter is provided', () => {
@@ -264,6 +277,15 @@ conditionalDescribe(isTimezoneSet(Timezone.UTC) && env === 'TEST')('createDateXA
     });
     expect(xAxisParams.xAxisElement).toMatchSnapshot();
   });
+
+  it('should render fewer x-axis labels when hideTickOverlap is true and container width is small', () => {
+    const xAxisParams = createXAxisParams({
+      domainNRangeValues: { ...domainNRangeValues, rEndValue: 50 },
+      hideTickOverlap: true,
+    });
+    const result = utils.createDateXAxis(xAxisParams, {});
+    matchResult(convertXAxisResultToJson(result));
+  });
 });
 
 describe('createStringXAxis', () => {
@@ -293,6 +315,12 @@ describe('createStringXAxis', () => {
   // before the first band (bar) and after the last band (bar).
   it('should create the x-axis labels correctly for specific inner and outer padding values', () => {
     const xAxisParams = createXAxisParams({ xAxisInnerPadding: 0.5, xAxisOuterPadding: 1 / 3 });
+    const result = utils.createStringXAxis(xAxisParams, {}, dataset);
+    matchResult(convertXAxisResultToJson(result, true));
+  });
+
+  it('should render fewer x-axis labels when hideTickOverlap is true and container width is small', () => {
+    const xAxisParams = createXAxisParams({ containerWidth: 50, hideTickOverlap: true });
     const result = utils.createStringXAxis(xAxisParams, {}, dataset);
     matchResult(convertXAxisResultToJson(result, true));
   });
@@ -331,6 +359,48 @@ describe('prepareDatapoints', () => {
 
   it('should return data points for a negative only range', () => {
     const result = utils.prepareDatapoints(-1, -5, 1, false);
+    matchResult(result);
+  });
+});
+
+describe('prepareDatapoints for rounded tick value cases', () => {
+  it('should return an array with rounded data points when roundedTicks is true and yMinValue is 0', () => {
+    const result = utils.prepareDatapoints(100, 0, 3, true, true);
+    matchResult(result);
+  });
+
+  it('should return an array with rounded data points when roundedTicks is true and yMinValue is positive', () => {
+    const result = utils.prepareDatapoints(100, 50, 4, true, true);
+    matchResult(result);
+  });
+
+  it('should return an array with rounded data points when roundedTicks is true and yMinValue is negative', () => {
+    const result = utils.prepareDatapoints(100, -100, 4, true, true);
+    matchResult(result);
+  });
+
+  it('should return an array with rounded data points when roundedTicks is true and yMaxValue is negative', () => {
+    const result = utils.prepareDatapoints(-100, -200, 4, true, true);
+    matchResult(result);
+  });
+
+  it('should return an array with rounded data points with non-integral dataset', () => {
+    const result = utils.prepareDatapoints(12.8, -8.4, 4, false, true);
+    matchResult(result);
+  });
+
+  it('should return an array with rounded data points with large numbers in dataset', () => {
+    const result = utils.prepareDatapoints(9874663, -8996557, 4, true, true);
+    matchResult(result);
+  });
+
+  it('should return an array with rounded data points with variation in dataset', () => {
+    const result = utils.prepareDatapoints(589030.78, -234.45, 4, false, true);
+    matchResult(result);
+  });
+
+  it('should return array with rounded datapoints when yMax is power of 10 with floating point precision error', () => {
+    const result = utils.prepareDatapoints(1000.000000002, -234.45, 4, false, true);
     matchResult(result);
   });
 });
@@ -871,6 +941,7 @@ describe('domainRangeOfNumericForHorizontalBarChartWithAxis', () => {
     { x: 10, y: 20 },
     { x: 30, y: 40 },
   ];
+
   const margins: utils.IMargins = {
     left: 5,
     right: 10,
@@ -879,12 +950,37 @@ describe('domainRangeOfNumericForHorizontalBarChartWithAxis', () => {
   };
 
   it('should return domain and range values correctly for numeric x-axis', () => {
-    const result = utils.domainRangeOfNumericForHorizontalBarChartWithAxis(points, margins, 100, false, 1);
+    const result = utils.domainRangeOfNumericForHorizontalBarChartWithAxis(points, margins, 100, false, 1, X_ORIGIN);
     matchResult(result);
   });
 
   it('should return domain and range values correctly for numeric x-axis when layout direction is RTL', () => {
-    const result = utils.domainRangeOfNumericForHorizontalBarChartWithAxis(points, margins, 100, true, 1);
+    const result = utils.domainRangeOfNumericForHorizontalBarChartWithAxis(points, margins, 100, true, 1, X_ORIGIN);
+    matchResult(result);
+  });
+});
+
+describe('domainRangeOfNumericForHorizontalBarChartWithAxisStacked', () => {
+  const points: IHorizontalBarChartWithAxisDataPoint[] = [
+    { x: 10, y: 20 },
+    { x: 20, y: 40 },
+    { x: 30, y: 40 },
+    { x: 50, y: 20 },
+  ];
+  const margins: utils.IMargins = {
+    left: 5,
+    right: 10,
+    top: 0,
+    bottom: 0,
+  };
+
+  it('should return domain and range values correctly for numeric x-axis', () => {
+    const result = utils.domainRangeOfNumericForHorizontalBarChartWithAxis(points, margins, 100, false, 1, X_ORIGIN);
+    matchResult(result);
+  });
+
+  it('should return domain and range values correctly for numeric x-axis when layout direction is RTL', () => {
+    const result = utils.domainRangeOfNumericForHorizontalBarChartWithAxis(points, margins, 100, true, 1, X_ORIGIN);
     matchResult(result);
   });
 });
@@ -1089,11 +1185,11 @@ test('wrapTextInsideDonut should wrap valueInsideDonut when it exceeds the maxWi
   SVGElement.prototype.getComputedTextLength = originalGetComputedTextLength;
 });
 
-test('formatValueWithSIPrefix should format a numeric value with appropriate SI prefix', () => {
-  expect(utils.formatValueWithSIPrefix(19.53)).toBe('19.53');
-  expect(utils.formatValueWithSIPrefix(983)).toBe('983');
-  expect(utils.formatValueWithSIPrefix(9801)).toBe('9.8k');
-  expect(utils.formatValueWithSIPrefix(100990000)).toBe('101.0M');
+test('formatValueLimitWidth should format a numeric value with appropriate SI prefix', () => {
+  expect(utils.formatValueLimitWidth(19.53)).toBe('19.53');
+  expect(utils.formatValueLimitWidth(983)).toBe('983');
+  expect(utils.formatValueLimitWidth(9801)).toBe('9.8k');
+  expect(utils.formatValueLimitWidth(100990000)).toBe('101M');
 });
 
 describe('getClosestPairDiffAndRange', () => {
@@ -1202,5 +1298,43 @@ describe('test array equality utility', () => {
 
   it('both arrays are equal', () => {
     expect(utils.areArraysEqual(['ab', 'cd', 'ef', 'gh'], ['ab', 'cd', 'ef', 'gh']) === true);
+  });
+});
+
+describe('defaultYAxisTickFormatter tests', () => {
+  it('should format small numbers and maintain precision', () => {
+    expect(utils.defaultYAxisTickFormatter(1000)).toBe('1k');
+    expect(utils.defaultYAxisTickFormatter(123.56)).toBe('123.56');
+    expect(utils.defaultYAxisTickFormatter(148)).toBe('148');
+    expect(utils.defaultYAxisTickFormatter(999.56)).toBe('999.56');
+    expect(utils.defaultYAxisTickFormatter(1995.89)).toBe('2k');
+  });
+  it('should format large numbers with SI prefixes', () => {
+    expect(utils.defaultYAxisTickFormatter(1e6)).toBe('1M'); // 1 million
+    expect(utils.defaultYAxisTickFormatter(1e9)).toBe('1B'); // 1 billion (G replaced with B)
+    expect(utils.defaultYAxisTickFormatter(1.5e9)).toBe('1.5B'); // 1.5 billion
+  });
+
+  it('should format small numbers without SI prefixes', () => {
+    expect(utils.defaultYAxisTickFormatter(0.123)).toBe('0.12'); // Small number
+    expect(utils.defaultYAxisTickFormatter(0.0000343)).toBe('0.000034'); // Scientific notation for very small numbers
+  });
+
+  it('should format negative numbers correctly', () => {
+    expect(utils.defaultYAxisTickFormatter(-1e6)).toBe('−1M'); // Negative 1 million
+    expect(utils.defaultYAxisTickFormatter(-1e9)).toBe('−1B'); // Negative 1 billion (G replaced with B)
+    expect(utils.defaultYAxisTickFormatter(-0.123)).toBe('−0.12'); // Small negative number
+  });
+
+  it('should handle zero correctly', () => {
+    expect(utils.defaultYAxisTickFormatter(0)).toBe('0'); // Zero
+  });
+
+  it('should not replace G with B for values less than 1e9', () => {
+    expect(utils.defaultYAxisTickFormatter(1e8)).toBe('100M'); // 100 million (no G to replace)
+  });
+
+  it('should format very small numbers in scientific notation', () => {
+    expect(utils.defaultYAxisTickFormatter(0.0000001)).toBe('1e-7'); // Scientific notation
   });
 });

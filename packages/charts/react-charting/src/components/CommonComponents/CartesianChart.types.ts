@@ -76,6 +76,11 @@ export interface ICartesianChartStyleProps {
    * boolean flag which determines if shape is drawn in callout
    */
   toDrawShape?: boolean;
+
+  /**
+   * Prop to disable shrinking of the chart beyond a certain limit and enable scrolling when the chart overflows
+   */
+  enableReflow?: boolean;
 }
 
 /**
@@ -236,7 +241,7 @@ export interface ICartesianChartProps {
    * This is a optional parameter if not specified D3 will decide which values appear on the x-axis for you
    * Please look at https://github.com/d3/d3-scale for more information on how D3 decides what data to appear on the axis of chart
    */
-  tickValues?: number[] | Date[];
+  tickValues?: number[] | Date[] | string[];
 
   /**
    * the format for the data on x-axis. For date object this can be specified to your requirement. Eg: '%m/%d', '%d'
@@ -448,10 +453,22 @@ export interface ICartesianChartProps {
   supportNegativeData?: boolean;
 
   /**
+   * @default false
+   * The prop used to decide rounded ticks on y axis
+   */
+  roundedTicks?: boolean;
+
+  /**
    * Optional callback to access the IChart interface. Use this instead of ref for accessing
    * the public methods and properties of the component.
    */
   componentRef?: IRefObject<IChart>;
+
+  /**
+   * Determines whether overlapping x-axis tick labels should be hidden.
+   * @default false
+   */
+  hideTickOverlap?: boolean;
 }
 
 export interface IYValueHover {
@@ -469,7 +486,7 @@ export interface IChildProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   xScale?: any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  yScale?: any;
+  yScalePrimary?: any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   yScaleSecondary?: any;
   containerHeight?: number;
@@ -551,7 +568,7 @@ export interface IModifiedCartesianChartProps extends ICartesianChartProps {
    * Tick params are applicable for date axis only.
    */
   tickParams?: {
-    tickValues?: number[] | Date[];
+    tickValues?: number[] | Date[] | string[];
     tickFormat?: string;
   };
 
@@ -624,6 +641,9 @@ export interface IModifiedCartesianChartProps extends ICartesianChartProps {
   /** Callback method to get extra margins for domain */
   getDomainMargins?: (containerWidth: number) => IMargins;
 
+  /** Callback method to get extra margins for Y-axis domain */
+  getYDomainMargins?: (containerHeight: number) => IMargins;
+
   /** Padding between each bar/line-point */
   xAxisInnerPadding?: number;
 
@@ -653,6 +673,7 @@ export interface IModifiedCartesianChartProps extends ICartesianChartProps {
   getMinMaxOfYAxis: (
     points: ILineChartPoints[] | IHorizontalBarChartWithAxisDataPoint[] | IVerticalBarChartDataPoint[] | IDataPoint[],
     yAxisType: YAxisType | undefined,
+    useSecondaryYScale?: boolean,
   ) => { startValue: number; endValue: number };
 
   /**
@@ -665,6 +686,7 @@ export interface IModifiedCartesianChartProps extends ICartesianChartProps {
     isIntegralDataset: boolean,
     useSecondaryYScale?: boolean,
     supportNegativeData?: boolean,
+    roundedTicks?: boolean,
   ) => ScaleLinear<number, number, never>;
 
   /**
@@ -684,7 +706,7 @@ export interface IModifiedCartesianChartProps extends ICartesianChartProps {
     isRTL: boolean,
     xAxisType: XAxisTypes,
     barWidth: number,
-    tickValues: Date[] | number[] | undefined,
+    tickValues: Date[] | number[] | string[] | undefined,
     shiftX: number,
   ) => IDomainNRange;
 
@@ -702,4 +724,10 @@ export interface IModifiedCartesianChartProps extends ICartesianChartProps {
    * Callback to access the public methods and properties of the component.
    */
   ref?: IRefObject<IChart>;
+
+  /**
+   * Controls whether the numeric x-axis domain should be extended to start and end at nice rounded values.
+   * @default true
+   */
+  showRoundOffXTickValues?: boolean;
 }

@@ -130,13 +130,13 @@ export class CartesianChartBase
     if (this.props.yAxisTitle !== undefined && this.props.yAxisTitle !== '') {
       this.margins.left! = this._isRtl
         ? this.props.margins?.right ?? this.props?.secondaryYAxistitle
-          ? 60
+          ? 80
           : 40
         : this.props.margins?.left ?? 60;
       this.margins.right! = this._isRtl
         ? this.props.margins?.left ?? 60
         : this.props.margins?.right ?? this.props?.secondaryYAxistitle
-        ? 60
+        ? 80
         : 40;
     }
   }
@@ -287,17 +287,23 @@ export class CartesianChartBase
         containerHeight: this.state.containerHeight - this.state._removalValueForTextTuncate!,
         margins: this.margins,
         xAxisElement: this.xAxisElement!,
-        showRoundOffXTickValues: true,
+        showRoundOffXTickValues: this.props.showRoundOffXTickValues ?? true,
         xAxisCount: this.props.xAxisTickCount,
         xAxistickSize: this.props.xAxistickSize,
         tickPadding: this.props.tickPadding || this.props.showXAxisLablesTooltip ? 5 : 10,
         xAxisPadding: this.props.xAxisPadding,
         xAxisInnerPadding: this.props.xAxisInnerPadding,
         xAxisOuterPadding: this.props.xAxisOuterPadding,
+        containerWidth: this.state.containerWidth,
+        hideTickOverlap:
+          this.props.hideTickOverlap &&
+          !this.props.rotateXAxisLables &&
+          !this.props.showXAxisLablesTooltip &&
+          !this.props.wrapXAxisLables,
       };
 
       const YAxisParams = {
-        margins: this.margins,
+        margins: this.props.getYDomainMargins ? this.props.getYDomainMargins(this.state.containerHeight) : this.margins,
         containerWidth: this.state.containerWidth,
         containerHeight: this.state.containerHeight - this.state._removalValueForTextTuncate!,
         yAxisElement: this.yAxisElement,
@@ -324,7 +330,12 @@ export class CartesianChartBase
       let tickValues: (string | number)[];
       switch (this.props.xAxisType!) {
         case XAxisTypes.NumericAxis:
-          ({ xScale, tickValues } = createNumericXAxis(XAxisParams, this.props.chartType, culture));
+          ({ xScale, tickValues } = createNumericXAxis(
+            XAxisParams,
+            this.props.tickParams!,
+            this.props.chartType,
+            culture,
+          ));
           break;
         case XAxisTypes.DateAxis:
           ({ xScale, tickValues } = createDateXAxis(
@@ -346,7 +357,12 @@ export class CartesianChartBase
           ));
           break;
         default:
-          ({ xScale, tickValues } = createNumericXAxis(XAxisParams, this.props.chartType, culture));
+          ({ xScale, tickValues } = createNumericXAxis(
+            XAxisParams,
+            this.props.tickParams!,
+            this.props.chartType,
+            culture,
+          ));
       }
       this._xScale = xScale;
       this._tickValues = tickValues;
@@ -378,18 +394,23 @@ export class CartesianChartBase
        * For area/line chart using same scales. For other charts, creating their own scales to draw the graph.
        */
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      let yScale: any;
+      let yScalePrimary: any;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let yScaleSecondary: any;
       const axisData: IAxisData = { yAxisDomainValues: [] };
       if (this.props.yAxisType && this.props.yAxisType === YAxisType.StringAxis) {
-        yScale = this.props.createStringYAxis(
+        yScalePrimary = this.props.createStringYAxis(
           YAxisParams,
           this.props.stringDatasetForYAxisDomain!,
           this._isRtl,
           this.props.barwidth,
         );
       } else {
+        // TODO: Since the scale domain values are now computed independently for both the primary and
+        // secondary y-axes, the yMinValue and yMaxValue props are no longer necessary for accurately
+        // rendering the secondary y-axis. Therefore, rather than checking the secondaryYScaleOptions
+        // prop to determine whether to create a secondary y-axis, it's more appropriate to check if any
+        // data points are assigned to use the secondary y-scale.
         if (this.props?.secondaryYScaleOptions) {
           const YAxisParamsSecondary = {
             margins: this.margins,
@@ -401,27 +422,28 @@ export class CartesianChartBase
             yMinValue: this.props.secondaryYScaleOptions?.yMinValue || 0,
             yMaxValue: this.props.secondaryYScaleOptions?.yMaxValue ?? 100,
             tickPadding: 10,
-            maxOfYVal: this.props.secondaryYScaleOptions?.yMaxValue ?? 100,
-            yMinMaxValues: this.props.getMinMaxOfYAxis(points, this.props.yAxisType),
+            yMinMaxValues: this.props.getMinMaxOfYAxis(points, this.props.yAxisType, true),
             yAxisPadding: this.props.yAxisPadding,
           };
 
-          yScaleSecondary = yScaleSecondary = this.props.createYAxis(
+          yScaleSecondary = this.props.createYAxis(
             YAxisParamsSecondary,
             this._isRtl,
             axisData,
             this.isIntegralDataset,
             true,
             this.props.supportNegativeData!,
+            this.props.roundedTicks!,
           );
         }
-        yScale = this.props.createYAxis(
+        yScalePrimary = this.props.createYAxis(
           YAxisParams,
           this._isRtl,
           axisData,
           this.isIntegralDataset,
           false,
           this.props.supportNegativeData!,
+          this.props.roundedTicks!,
         );
       }
 
@@ -431,10 +453,10 @@ export class CartesianChartBase
     or showing the whole string,
      * */
       chartTypesToCheck.includes(this.props.chartType) &&
-        yScale &&
+        yScalePrimary &&
         createYAxisLabels(
           this.yAxisElement,
-          yScale,
+          yScalePrimary,
           this.props.noOfCharsToTruncate || 4,
           this.props.showYAxisLablesTooltip || false,
           this._isRtl,
@@ -442,12 +464,12 @@ export class CartesianChartBase
 
       this.props.getAxisData && this.props.getAxisData(axisData);
       // Callback function for chart, returns axis
-      this._getData(xScale, yScale);
+      this._getData(xScale, yScalePrimary, yScaleSecondary);
 
       children = this.props.children({
         ...this.state,
         xScale,
-        yScale,
+        yScalePrimary,
         yScaleSecondary,
       });
 
@@ -462,6 +484,7 @@ export class CartesianChartBase
       height: this.state._height,
       className: this.props.className,
       isRtl: this._isRtl,
+      enableReflow: this.props.enableReflow,
     });
 
     const svgDimensions = {
@@ -552,6 +575,8 @@ export class CartesianChartBase
                 }}
                 maxWidth={xAxisTitleMaximumAllowedWidth}
                 wrapContent={wrapContent}
+                theme={this.props.theme}
+                showBackground={true}
               />
             )}
             <g
@@ -574,7 +599,9 @@ export class CartesianChartBase
                   }}
                   id={`yAxisGElementSecondary${this.idForGraph}`}
                   transform={`translate(${
-                    this._isRtl ? this.margins.left! : svgDimensions.width - this.margins.right!
+                    this._isRtl
+                      ? this.margins.left! + this.state.startFromX
+                      : svgDimensions.width - this.margins.right! - this.state.startFromX
                   }, 0)`}
                   className={this._classNames.yAxis}
                 />
@@ -600,6 +627,8 @@ export class CartesianChartBase
                     }}
                     maxWidth={yAxisTitleMaximumAllowedHeight}
                     wrapContent={wrapContent}
+                    theme={this.props.theme}
+                    showBackground={true}
                   />
                 )}
               </g>
@@ -623,6 +652,8 @@ export class CartesianChartBase
                 }}
                 maxWidth={yAxisTitleMaximumAllowedHeight}
                 wrapContent={wrapContent}
+                theme={this.props.theme}
+                showBackground={true}
               />
             )}
           </svg>
@@ -862,15 +893,16 @@ export class CartesianChartBase
 
   // Call back to the chart.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private _getData = (xScale: any, yScale: any) => {
+  private _getData = (xScale: any, yScalePrimary: any, yScaleSecondary: any) => {
     this.props.getGraphData &&
       this.props.getGraphData(
         xScale,
-        yScale,
+        yScalePrimary,
         this.state.containerHeight - this.state._removalValueForTextTuncate!,
         this.state.containerWidth,
         this.xAxisElement,
         this.yAxisElement,
+        yScaleSecondary,
       );
   };
 

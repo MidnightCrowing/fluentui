@@ -28,10 +28,8 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
           &:focus {
             outline: none;
           }
-          {
-            overflow: auto;
-          }
-      data-focuszone-id="FocusZone5"
+
+      data-focuszone-id="FocusZone4"
       data-tabster="{\\"uncontrolled\\": {}}"
     >
       <svg
@@ -53,17 +51,17 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                 font-size: 10px;
                 font-weight: 600;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
-                fill: rgb(179, 179, 179);
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& text {
+                fill: CanvasText;
               }
               & line {
                 opacity: 0.2;
                 stroke: #323130;
                 width: 1px;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& line {
                 opacity: 0.1;
-                stroke: rgb(179, 179, 179);
+                stroke: CanvasText;
               }
               & path {
                 display: none;
@@ -113,7 +111,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
               fill="currentColor"
               y="10"
             >
-              5,000
+              5000
             </text>
           </g>
           <g
@@ -254,8 +252,8 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                 font-size: 10px;
                 font-weight: 600;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
-                fill: rgb(179, 179, 179);
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& text {
+                fill: CanvasText;
               }
               & path {
                 display: none;
@@ -264,9 +262,9 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                 opacity: 0.2;
                 stroke: #323130;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& line {
                 opacity: 0.1;
-                stroke: rgb(179, 179, 179);
+                stroke: CanvasText;
               }
           fill="none"
           font-family="sans-serif"
@@ -277,13 +275,13 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
         >
           <path
             class="domain"
-            d="M-6,257.5H0.5V20.5H-6"
+            d="M-6,241.5H0.5V36.5H-6"
             stroke="currentColor"
           />
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,257.5)"
+            transform="translate(0,241.5)"
           >
             <line
               stroke="currentColor"
@@ -314,7 +312,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,210.10000000000002)"
+            transform="translate(0,200.5)"
           >
             <line
               stroke="currentColor"
@@ -345,7 +343,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,162.7)"
+            transform="translate(0,159.5)"
           >
             <line
               stroke="currentColor"
@@ -376,7 +374,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,115.30000000000001)"
+            transform="translate(0,118.5)"
           >
             <line
               stroke="currentColor"
@@ -407,7 +405,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,67.89999999999999)"
+            transform="translate(0,77.49999999999999)"
           >
             <line
               stroke="currentColor"
@@ -438,7 +436,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,20.5)"
+            transform="translate(0,36.5)"
           >
             <line
               stroke="currentColor"
@@ -469,7 +467,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
         </g>
         <g>
           <rect
-            aria-label="20%. 2020/04/30."
+            aria-label="10%. 2020/04/30."
             aria-labelledby="toolTipcallout0"
             class=
 
@@ -477,32 +475,14 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                   opacity: ;
                 }
             data-is-focusable="true"
-            fill="#002050"
-            height="32"
+            fill="#0078d4"
+            height="16"
             role="img"
             rx="0"
             tabindex="0"
-            width="295"
+            width="147.5"
             x="40"
-            y="4"
-          />
-          <rect
-            aria-label="37%. 2020/04/30."
-            aria-labelledby="toolTipcallout0"
-            class=
-
-                {
-                  opacity: ;
-                }
-            data-is-focusable="true"
-            fill="#00188f"
-            height="32"
-            role="img"
-            rx="0"
-            tabindex="-1"
-            width="368.75"
-            x="40"
-            y="98.80000000000001"
+            y="212.5"
           />
           <rect
             aria-label="88%. 2020/04/30."
@@ -514,16 +494,16 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                 }
             data-is-focusable="true"
             fill="#00bcf2"
-            height="32"
+            height="16"
             role="img"
             rx="0"
             tabindex="-1"
             width="590"
             x="40"
-            y="179.38"
+            y="179.7"
           />
           <rect
-            aria-label="10%. 2020/04/30."
+            aria-label="37%. 2020/04/30."
             aria-labelledby="toolTipcallout0"
             class=
 
@@ -531,14 +511,32 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                   opacity: ;
                 }
             data-is-focusable="true"
-            fill="#0078d4"
-            height="32"
+            fill="#00188f"
+            height="16"
             role="img"
             rx="0"
             tabindex="-1"
-            width="147.5"
+            width="368.75"
             x="40"
-            y="217.3"
+            y="110"
+          />
+          <rect
+            aria-label="20%. 2020/04/30."
+            aria-labelledby="toolTipcallout0"
+            class=
+
+                {
+                  opacity: ;
+                }
+            data-is-focusable="true"
+            fill="#002050"
+            height="16"
+            role="img"
+            rx="0"
+            tabindex="-1"
+            width="295"
+            x="40"
+            y="28"
           />
         </g>
       </svg>
@@ -580,7 +578,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                     &:focus {
                       outline: none;
                     }
-                data-focuszone-id="FocusZone6"
+                data-focuszone-id="FocusZone5"
                 data-tabster="{\\"uncontrolled\\": {}}"
                 role="listbox"
               >
@@ -1034,10 +1032,8 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
           &:focus {
             outline: none;
           }
-          {
-            overflow: auto;
-          }
-      data-focuszone-id="FocusZone5"
+
+      data-focuszone-id="FocusZone4"
       data-tabster="{\\"uncontrolled\\": {}}"
     >
       <svg
@@ -1059,17 +1055,17 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                 font-size: 10px;
                 font-weight: 600;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
-                fill: rgb(179, 179, 179);
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& text {
+                fill: CanvasText;
               }
               & line {
                 opacity: 0.2;
                 stroke: #323130;
                 width: 1px;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& line {
                 opacity: 0.1;
-                stroke: rgb(179, 179, 179);
+                stroke: CanvasText;
               }
               & path {
                 display: none;
@@ -1119,7 +1115,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
               fill="currentColor"
               y="10"
             >
-              5,000
+              5000
             </text>
           </g>
           <g
@@ -1260,8 +1256,8 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                 font-size: 10px;
                 font-weight: 600;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
-                fill: rgb(179, 179, 179);
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& text {
+                fill: CanvasText;
               }
               & path {
                 display: none;
@@ -1270,9 +1266,9 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                 opacity: 0.2;
                 stroke: #323130;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& line {
                 opacity: 0.1;
-                stroke: rgb(179, 179, 179);
+                stroke: CanvasText;
               }
           fill="none"
           font-family="sans-serif"
@@ -1283,13 +1279,13 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
         >
           <path
             class="domain"
-            d="M-6,257.5H0.5V20.5H-6"
+            d="M-6,241.5H0.5V36.5H-6"
             stroke="currentColor"
           />
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,257.5)"
+            transform="translate(0,241.5)"
           >
             <line
               stroke="currentColor"
@@ -1320,7 +1316,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,210.10000000000002)"
+            transform="translate(0,200.5)"
           >
             <line
               stroke="currentColor"
@@ -1351,7 +1347,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,162.7)"
+            transform="translate(0,159.5)"
           >
             <line
               stroke="currentColor"
@@ -1382,7 +1378,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,115.30000000000001)"
+            transform="translate(0,118.5)"
           >
             <line
               stroke="currentColor"
@@ -1413,7 +1409,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,67.89999999999999)"
+            transform="translate(0,77.49999999999999)"
           >
             <line
               stroke="currentColor"
@@ -1444,7 +1440,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,20.5)"
+            transform="translate(0,36.5)"
           >
             <line
               stroke="currentColor"
@@ -1475,7 +1471,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
         </g>
         <g>
           <rect
-            aria-label="20%. 2020/04/30."
+            aria-label="10%. 2020/04/30."
             aria-labelledby="toolTipcallout0"
             class=
 
@@ -1483,32 +1479,14 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                   opacity: ;
                 }
             data-is-focusable="true"
-            fill="#002050"
-            height="32"
+            fill="#0078d4"
+            height="16"
             role="img"
             rx="0"
             tabindex="0"
-            width="295"
+            width="147.5"
             x="40"
-            y="4"
-          />
-          <rect
-            aria-label="37%. 2020/04/30."
-            aria-labelledby="toolTipcallout0"
-            class=
-
-                {
-                  opacity: ;
-                }
-            data-is-focusable="true"
-            fill="#00188f"
-            height="32"
-            role="img"
-            rx="0"
-            tabindex="-1"
-            width="368.75"
-            x="40"
-            y="98.80000000000001"
+            y="212.5"
           />
           <rect
             aria-label="88%. 2020/04/30."
@@ -1520,16 +1498,16 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                 }
             data-is-focusable="true"
             fill="#00bcf2"
-            height="32"
+            height="16"
             role="img"
             rx="0"
             tabindex="-1"
             width="590"
             x="40"
-            y="179.38"
+            y="179.7"
           />
           <rect
-            aria-label="10%. 2020/04/30."
+            aria-label="37%. 2020/04/30."
             aria-labelledby="toolTipcallout0"
             class=
 
@@ -1537,14 +1515,32 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                   opacity: ;
                 }
             data-is-focusable="true"
-            fill="#0078d4"
-            height="32"
+            fill="#00188f"
+            height="16"
             role="img"
             rx="0"
             tabindex="-1"
-            width="147.5"
+            width="368.75"
             x="40"
-            y="217.3"
+            y="110"
+          />
+          <rect
+            aria-label="20%. 2020/04/30."
+            aria-labelledby="toolTipcallout0"
+            class=
+
+                {
+                  opacity: ;
+                }
+            data-is-focusable="true"
+            fill="#002050"
+            height="16"
+            role="img"
+            rx="0"
+            tabindex="-1"
+            width="295"
+            x="40"
+            y="28"
           />
         </g>
       </svg>
@@ -1586,7 +1582,7 @@ exports[`Horizontal bar chart with axis - Screen resolution Should remain unchan
                     &:focus {
                       outline: none;
                     }
-                data-focuszone-id="FocusZone6"
+                data-focuszone-id="FocusZone5"
                 data-tabster="{\\"uncontrolled\\": {}}"
                 role="listbox"
               >
@@ -2053,10 +2049,8 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
             &:focus {
               outline: none;
             }
-            {
-              overflow: auto;
-            }
-        data-focuszone-id="FocusZone8"
+
+        data-focuszone-id="FocusZone7"
         data-tabster="{\\"uncontrolled\\": {}}"
       >
         <svg
@@ -2078,17 +2072,17 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
                   font-size: 10px;
                   font-weight: 600;
                 }
-                @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
-                  fill: rgb(179, 179, 179);
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& text {
+                  fill: CanvasText;
                 }
                 & line {
                   opacity: 0.2;
                   stroke: #f3f2f1;
                   width: 1px;
                 }
-                @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& line {
                   opacity: 0.1;
-                  stroke: rgb(179, 179, 179);
+                  stroke: CanvasText;
                 }
                 & path {
                   display: none;
@@ -2138,7 +2132,7 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
                 fill="currentColor"
                 y="10"
               >
-                5,000
+                5000
               </text>
             </g>
             <g
@@ -2279,8 +2273,8 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
                   font-size: 10px;
                   font-weight: 600;
                 }
-                @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
-                  fill: rgb(179, 179, 179);
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& text {
+                  fill: CanvasText;
                 }
                 & path {
                   display: none;
@@ -2289,9 +2283,9 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
                   opacity: 0.2;
                   stroke: #f3f2f1;
                 }
-                @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
+                @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& line {
                   opacity: 0.1;
-                  stroke: rgb(179, 179, 179);
+                  stroke: CanvasText;
                 }
             fill="none"
             font-family="sans-serif"
@@ -2302,13 +2296,13 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
           >
             <path
               class="domain"
-              d="M-6,257.5H0.5V20.5H-6"
+              d="M-6,241.5H0.5V36.5H-6"
               stroke="currentColor"
             />
             <g
               class="tick"
               opacity="1"
-              transform="translate(0,257.5)"
+              transform="translate(0,241.5)"
             >
               <line
                 stroke="currentColor"
@@ -2339,7 +2333,7 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
             <g
               class="tick"
               opacity="1"
-              transform="translate(0,210.10000000000002)"
+              transform="translate(0,200.5)"
             >
               <line
                 stroke="currentColor"
@@ -2370,7 +2364,7 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
             <g
               class="tick"
               opacity="1"
-              transform="translate(0,162.7)"
+              transform="translate(0,159.5)"
             >
               <line
                 stroke="currentColor"
@@ -2401,7 +2395,7 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
             <g
               class="tick"
               opacity="1"
-              transform="translate(0,115.30000000000001)"
+              transform="translate(0,118.5)"
             >
               <line
                 stroke="currentColor"
@@ -2432,7 +2426,7 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
             <g
               class="tick"
               opacity="1"
-              transform="translate(0,67.89999999999999)"
+              transform="translate(0,77.49999999999999)"
             >
               <line
                 stroke="currentColor"
@@ -2463,7 +2457,7 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
             <g
               class="tick"
               opacity="1"
-              transform="translate(0,20.5)"
+              transform="translate(0,36.5)"
             >
               <line
                 stroke="currentColor"
@@ -2494,7 +2488,7 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
           </g>
           <g>
             <rect
-              aria-label="20%. 2020/04/30."
+              aria-label="10%. 2020/04/30."
               aria-labelledby="toolTipcallout3"
               class=
 
@@ -2502,32 +2496,14 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
                     opacity: ;
                   }
               data-is-focusable="true"
-              fill="#002050"
-              height="32"
+              fill="#0078d4"
+              height="16"
               role="img"
               rx="0"
               tabindex="0"
-              width="295"
+              width="147.5"
               x="40"
-              y="4"
-            />
-            <rect
-              aria-label="37%. 2020/04/30."
-              aria-labelledby="toolTipcallout3"
-              class=
-
-                  {
-                    opacity: ;
-                  }
-              data-is-focusable="true"
-              fill="#00188f"
-              height="32"
-              role="img"
-              rx="0"
-              tabindex="-1"
-              width="368.75"
-              x="40"
-              y="98.80000000000001"
+              y="212.5"
             />
             <rect
               aria-label="88%. 2020/04/30."
@@ -2539,16 +2515,16 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
                   }
               data-is-focusable="true"
               fill="#00bcf2"
-              height="32"
+              height="16"
               role="img"
               rx="0"
               tabindex="-1"
               width="590"
               x="40"
-              y="179.38"
+              y="179.7"
             />
             <rect
-              aria-label="10%. 2020/04/30."
+              aria-label="37%. 2020/04/30."
               aria-labelledby="toolTipcallout3"
               class=
 
@@ -2556,14 +2532,32 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
                     opacity: ;
                   }
               data-is-focusable="true"
-              fill="#0078d4"
-              height="32"
+              fill="#00188f"
+              height="16"
               role="img"
               rx="0"
               tabindex="-1"
-              width="147.5"
+              width="368.75"
               x="40"
-              y="217.3"
+              y="110"
+            />
+            <rect
+              aria-label="20%. 2020/04/30."
+              aria-labelledby="toolTipcallout3"
+              class=
+
+                  {
+                    opacity: ;
+                  }
+              data-is-focusable="true"
+              fill="#002050"
+              height="16"
+              role="img"
+              rx="0"
+              tabindex="-1"
+              width="295"
+              x="40"
+              y="28"
             />
           </g>
         </svg>
@@ -2605,7 +2599,7 @@ exports[`Horizontal bar chart with axis - Theme Should reflect theme change 1`] 
                       &:focus {
                         outline: none;
                       }
-                  data-focuszone-id="FocusZone9"
+                  data-focuszone-id="FocusZone8"
                   data-tabster="{\\"uncontrolled\\": {}}"
                   role="listbox"
                 >
@@ -3060,10 +3054,8 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
           &:focus {
             outline: none;
           }
-          {
-            overflow: auto;
-          }
-      data-focuszone-id="FocusZone5"
+
+      data-focuszone-id="FocusZone4"
       data-tabster="{\\"uncontrolled\\": {}}"
     >
       <svg
@@ -3085,17 +3077,17 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                 font-size: 10px;
                 font-weight: 600;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
-                fill: rgb(179, 179, 179);
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& text {
+                fill: CanvasText;
               }
               & line {
                 opacity: 0.2;
                 stroke: #323130;
                 width: 1px;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& line {
                 opacity: 0.1;
-                stroke: rgb(179, 179, 179);
+                stroke: CanvasText;
               }
               & path {
                 display: none;
@@ -3145,7 +3137,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
               fill="currentColor"
               y="10"
             >
-              5,000
+              5000
             </text>
           </g>
           <g
@@ -3286,8 +3278,8 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                 font-size: 10px;
                 font-weight: 600;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
-                fill: rgb(179, 179, 179);
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& text {
+                fill: CanvasText;
               }
               & path {
                 display: none;
@@ -3296,9 +3288,9 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                 opacity: 0.2;
                 stroke: #323130;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& line {
                 opacity: 0.1;
-                stroke: rgb(179, 179, 179);
+                stroke: CanvasText;
               }
           fill="none"
           font-family="sans-serif"
@@ -3309,13 +3301,13 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
         >
           <path
             class="domain"
-            d="M-6,257.5H0.5V20.5H-6"
+            d="M-6,241.5H0.5V36.5H-6"
             stroke="currentColor"
           />
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,257.5)"
+            transform="translate(0,241.5)"
           >
             <line
               stroke="currentColor"
@@ -3346,7 +3338,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,210.10000000000002)"
+            transform="translate(0,200.5)"
           >
             <line
               stroke="currentColor"
@@ -3377,7 +3369,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,162.7)"
+            transform="translate(0,159.5)"
           >
             <line
               stroke="currentColor"
@@ -3408,7 +3400,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,115.30000000000001)"
+            transform="translate(0,118.5)"
           >
             <line
               stroke="currentColor"
@@ -3439,7 +3431,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,67.89999999999999)"
+            transform="translate(0,77.49999999999999)"
           >
             <line
               stroke="currentColor"
@@ -3470,7 +3462,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,20.5)"
+            transform="translate(0,36.5)"
           >
             <line
               stroke="currentColor"
@@ -3501,7 +3493,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
         </g>
         <g>
           <rect
-            aria-label="20%. 2020/04/30."
+            aria-label="10%. 2020/04/30."
             aria-labelledby="toolTipcallout0"
             class=
 
@@ -3509,32 +3501,14 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                   opacity: ;
                 }
             data-is-focusable="true"
-            fill="#002050"
-            height="32"
+            fill="#0078d4"
+            height="16"
             role="img"
             rx="0"
             tabindex="0"
-            width="295"
+            width="147.5"
             x="40"
-            y="4"
-          />
-          <rect
-            aria-label="37%. 2020/04/30."
-            aria-labelledby="toolTipcallout0"
-            class=
-
-                {
-                  opacity: ;
-                }
-            data-is-focusable="true"
-            fill="#00188f"
-            height="32"
-            role="img"
-            rx="0"
-            tabindex="-1"
-            width="368.75"
-            x="40"
-            y="98.80000000000001"
+            y="212.5"
           />
           <rect
             aria-label="88%. 2020/04/30."
@@ -3546,16 +3520,16 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                 }
             data-is-focusable="true"
             fill="#00bcf2"
-            height="32"
+            height="16"
             role="img"
             rx="0"
             tabindex="-1"
             width="590"
             x="40"
-            y="179.38"
+            y="179.7"
           />
           <rect
-            aria-label="10%. 2020/04/30."
+            aria-label="37%. 2020/04/30."
             aria-labelledby="toolTipcallout0"
             class=
 
@@ -3563,14 +3537,32 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                   opacity: ;
                 }
             data-is-focusable="true"
-            fill="#0078d4"
-            height="32"
+            fill="#00188f"
+            height="16"
             role="img"
             rx="0"
             tabindex="-1"
-            width="147.5"
+            width="368.75"
             x="40"
-            y="217.3"
+            y="110"
+          />
+          <rect
+            aria-label="20%. 2020/04/30."
+            aria-labelledby="toolTipcallout0"
+            class=
+
+                {
+                  opacity: ;
+                }
+            data-is-focusable="true"
+            fill="#002050"
+            height="16"
+            role="img"
+            rx="0"
+            tabindex="-1"
+            width="295"
+            x="40"
+            y="28"
           />
         </g>
       </svg>
@@ -3612,7 +3604,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                     &:focus {
                       outline: none;
                     }
-                data-focuszone-id="FocusZone6"
+                data-focuszone-id="FocusZone5"
                 data-tabster="{\\"uncontrolled\\": {}}"
                 role="listbox"
               >
@@ -4066,10 +4058,8 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
           &:focus {
             outline: none;
           }
-          {
-            overflow: auto;
-          }
-      data-focuszone-id="FocusZone5"
+
+      data-focuszone-id="FocusZone4"
       data-tabster="{\\"uncontrolled\\": {}}"
     >
       <svg
@@ -4091,17 +4081,17 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                 font-size: 10px;
                 font-weight: 600;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
-                fill: rgb(179, 179, 179);
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& text {
+                fill: CanvasText;
               }
               & line {
                 opacity: 0.2;
                 stroke: #323130;
                 width: 1px;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& line {
                 opacity: 0.1;
-                stroke: rgb(179, 179, 179);
+                stroke: CanvasText;
               }
               & path {
                 display: none;
@@ -4151,7 +4141,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
               fill="currentColor"
               y="10"
             >
-              1,000
+              1000
             </text>
           </g>
           <g
@@ -4169,7 +4159,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
               fill="currentColor"
               y="10"
             >
-              2,000
+              2000
             </text>
           </g>
           <g
@@ -4187,7 +4177,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
               fill="currentColor"
               y="10"
             >
-              3,000
+              3000
             </text>
           </g>
           <g
@@ -4205,7 +4195,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
               fill="currentColor"
               y="10"
             >
-              4,000
+              4000
             </text>
           </g>
           <g
@@ -4223,7 +4213,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
               fill="currentColor"
               y="10"
             >
-              5,000
+              5000
             </text>
           </g>
         </g>
@@ -4238,8 +4228,8 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                 font-size: 10px;
                 font-weight: 600;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
-                fill: rgb(179, 179, 179);
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& text {
+                fill: CanvasText;
               }
               & path {
                 display: none;
@@ -4248,9 +4238,9 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                 opacity: 0.2;
                 stroke: #323130;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& line {
                 opacity: 0.1;
-                stroke: rgb(179, 179, 179);
+                stroke: CanvasText;
               }
           fill="none"
           font-family="sans-serif"
@@ -4261,13 +4251,13 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
         >
           <path
             class="domain"
-            d="M-6,241.5H0.5V36.5H-6"
+            d="M-6,249.5H0.5V28.5H-6"
             stroke="currentColor"
           />
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,215.375)"
+            transform="translate(0,212.16666666666666)"
           >
             <line
               stroke="currentColor"
@@ -4297,7 +4287,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,164.125)"
+            transform="translate(0,163.05555555555554)"
           >
             <line
               stroke="currentColor"
@@ -4327,7 +4317,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,112.875)"
+            transform="translate(0,113.94444444444443)"
           >
             <line
               stroke="currentColor"
@@ -4357,7 +4347,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,61.625)"
+            transform="translate(0,64.83333333333331)"
           >
             <line
               stroke="currentColor"
@@ -4396,14 +4386,14 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                 }
             data-is-focusable="true"
             fill="#0078d4"
-            height="32"
+            height="31.571428571428573"
             role="img"
             rx="0"
             tabindex="0"
-            transform="translate(0,9.625)"
+            transform="translate(0,-3.507936507936508)"
             width="118"
             x="40"
-            y="36"
+            y="52.55555555555554"
           />
           <rect
             aria-label="5000. String Two."
@@ -4415,14 +4405,14 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                 }
             data-is-focusable="true"
             fill="#002050"
-            height="32"
+            height="31.571428571428573"
             role="img"
             rx="0"
             tabindex="-1"
-            transform="translate(0,9.625)"
+            transform="translate(0,-3.507936507936508)"
             width="590"
             x="40"
-            y="87.25"
+            y="101.66666666666666"
           />
           <rect
             aria-label="3000. String Three."
@@ -4434,14 +4424,14 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                 }
             data-is-focusable="true"
             fill="#00188f"
-            height="32"
+            height="31.571428571428573"
             role="img"
             rx="0"
             tabindex="-1"
-            transform="translate(0,9.625)"
+            transform="translate(0,-3.507936507936508)"
             width="354"
             x="40"
-            y="138.5"
+            y="150.77777777777777"
           />
           <rect
             aria-label="2000. String Four."
@@ -4453,14 +4443,14 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                 }
             data-is-focusable="true"
             fill="#0078d4"
-            height="32"
+            height="31.571428571428573"
             role="img"
             rx="0"
             tabindex="-1"
-            transform="translate(0,9.625)"
+            transform="translate(0,-3.507936507936508)"
             width="236"
             x="40"
-            y="189.75"
+            y="199.88888888888889"
           />
         </g>
       </svg>
@@ -4502,7 +4492,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                     &:focus {
                       outline: none;
                     }
-                data-focuszone-id="FocusZone6"
+                data-focuszone-id="FocusZone5"
                 data-tabster="{\\"uncontrolled\\": {}}"
                 role="listbox"
               >
@@ -4530,7 +4520,7 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                       aria-label="undefined"
                       aria-posinset="1"
                       aria-selected="false"
-                      aria-setsize="4"
+                      aria-setsize="1"
                       class=
 
                           {
@@ -4612,301 +4602,9 @@ exports[`Horizontal bar chart with axis rendering Should render the Horizontal b
                               line-height: 16px;
                               opacity: ;
                             }
-                      />
-                    </button>
-                  </div>
-                  <div
-                    class=
-                        ms-OverflowSet-item
-                        {
-                          display: inherit;
-                          flex-shrink: 0;
-                        }
-                    role="none"
-                  >
-                    <button
-                      aria-label="undefined"
-                      aria-posinset="2"
-                      aria-selected="false"
-                      aria-setsize="4"
-                      class=
-
-                          {
-                            align-items: center;
-                            background: none;
-                            border: none;
-                            cursor: pointer;
-                            display: flex;
-                            outline: transparent;
-                            padding-bottom: 8px;
-                            padding-left: 8px;
-                            padding-right: 8px;
-                            padding-top: 8px;
-                            position: relative;
-                            text-transform: capitalize;
-                          }
-                          &::-moz-focus-inner {
-                            border: 0;
-                          }
-                          .ms-Fabric--isFocusVisible &:focus:after {
-                            border: 1px solid transparent;
-                            bottom: 1px;
-                            content: "";
-                            left: 1px;
-                            outline: 1px solid #605e5c;
-                            position: absolute;
-                            right: 1px;
-                            top: 1px;
-                            z-index: 1;
-                          }
-                          @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
-                            outline-color: #605e5c;
-                          }
-                          :host(.ms-Fabric--isFocusVisible) &:focus:after {
-                            border: 1px solid transparent;
-                            bottom: 1px;
-                            content: "";
-                            left: 1px;
-                            outline: 1px solid #605e5c;
-                            position: absolute;
-                            right: 1px;
-                            top: 1px;
-                            z-index: 1;
-                          }
-                          @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){:host(.ms-Fabric--isFocusVisible) &:focus:after {
-                            outline-color: #605e5c;
-                          }
-                      data-is-focusable="true"
-                      role="option"
-                      tabindex="-1"
-                    >
-                      <div
-                        class=
-
-                            {
-                              background-color: #002050;
-                              border-color: #002050;
-                              border: 1px solid;
-                              content: ;
-                              height: 12px;
-                              margin-right: 8px;
-                              width: 12px;
-                            }
-                            @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
-                              content: linear-gradient(to right, #002050, #002050);
-                              opacity: ;
-                            }
-                      />
-                      <div
-                        class=
-
-                            {
-                              -moz-osx-font-smoothing: grayscale;
-                              -webkit-font-smoothing: antialiased;
-                              color: #323130;
-                              font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
-                              font-size: 12px;
-                              font-weight: 400;
-                              line-height: 16px;
-                              opacity: ;
-                            }
-                      />
-                    </button>
-                  </div>
-                  <div
-                    class=
-                        ms-OverflowSet-item
-                        {
-                          display: inherit;
-                          flex-shrink: 0;
-                        }
-                    role="none"
-                  >
-                    <button
-                      aria-label="undefined"
-                      aria-posinset="3"
-                      aria-selected="false"
-                      aria-setsize="4"
-                      class=
-
-                          {
-                            align-items: center;
-                            background: none;
-                            border: none;
-                            cursor: pointer;
-                            display: flex;
-                            outline: transparent;
-                            padding-bottom: 8px;
-                            padding-left: 8px;
-                            padding-right: 8px;
-                            padding-top: 8px;
-                            position: relative;
-                            text-transform: capitalize;
-                          }
-                          &::-moz-focus-inner {
-                            border: 0;
-                          }
-                          .ms-Fabric--isFocusVisible &:focus:after {
-                            border: 1px solid transparent;
-                            bottom: 1px;
-                            content: "";
-                            left: 1px;
-                            outline: 1px solid #605e5c;
-                            position: absolute;
-                            right: 1px;
-                            top: 1px;
-                            z-index: 1;
-                          }
-                          @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
-                            outline-color: #605e5c;
-                          }
-                          :host(.ms-Fabric--isFocusVisible) &:focus:after {
-                            border: 1px solid transparent;
-                            bottom: 1px;
-                            content: "";
-                            left: 1px;
-                            outline: 1px solid #605e5c;
-                            position: absolute;
-                            right: 1px;
-                            top: 1px;
-                            z-index: 1;
-                          }
-                          @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){:host(.ms-Fabric--isFocusVisible) &:focus:after {
-                            outline-color: #605e5c;
-                          }
-                      data-is-focusable="true"
-                      role="option"
-                      tabindex="-1"
-                    >
-                      <div
-                        class=
-
-                            {
-                              background-color: #00188f;
-                              border-color: #00188f;
-                              border: 1px solid;
-                              content: ;
-                              height: 12px;
-                              margin-right: 8px;
-                              width: 12px;
-                            }
-                            @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
-                              content: linear-gradient(to right, #00188f, #00188f);
-                              opacity: ;
-                            }
-                      />
-                      <div
-                        class=
-
-                            {
-                              -moz-osx-font-smoothing: grayscale;
-                              -webkit-font-smoothing: antialiased;
-                              color: #323130;
-                              font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
-                              font-size: 12px;
-                              font-weight: 400;
-                              line-height: 16px;
-                              opacity: ;
-                            }
-                      />
-                    </button>
-                  </div>
-                  <div
-                    class=
-                        ms-OverflowSet-item
-                        {
-                          display: inherit;
-                          flex-shrink: 0;
-                        }
-                    role="none"
-                  >
-                    <button
-                      aria-label="undefined"
-                      aria-posinset="4"
-                      aria-selected="false"
-                      aria-setsize="4"
-                      class=
-
-                          {
-                            align-items: center;
-                            background: none;
-                            border: none;
-                            cursor: pointer;
-                            display: flex;
-                            outline: transparent;
-                            padding-bottom: 8px;
-                            padding-left: 8px;
-                            padding-right: 8px;
-                            padding-top: 8px;
-                            position: relative;
-                            text-transform: capitalize;
-                          }
-                          &::-moz-focus-inner {
-                            border: 0;
-                          }
-                          .ms-Fabric--isFocusVisible &:focus:after {
-                            border: 1px solid transparent;
-                            bottom: 1px;
-                            content: "";
-                            left: 1px;
-                            outline: 1px solid #605e5c;
-                            position: absolute;
-                            right: 1px;
-                            top: 1px;
-                            z-index: 1;
-                          }
-                          @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){.ms-Fabric--isFocusVisible &:focus:after {
-                            outline-color: #605e5c;
-                          }
-                          :host(.ms-Fabric--isFocusVisible) &:focus:after {
-                            border: 1px solid transparent;
-                            bottom: 1px;
-                            content: "";
-                            left: 1px;
-                            outline: 1px solid #605e5c;
-                            position: absolute;
-                            right: 1px;
-                            top: 1px;
-                            z-index: 1;
-                          }
-                          @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){:host(.ms-Fabric--isFocusVisible) &:focus:after {
-                            outline-color: #605e5c;
-                          }
-                      data-is-focusable="true"
-                      role="option"
-                      tabindex="-1"
-                    >
-                      <div
-                        class=
-
-                            {
-                              background-color: #0078d4;
-                              border-color: #0078d4;
-                              border: 1px solid;
-                              content: ;
-                              height: 12px;
-                              margin-right: 8px;
-                              width: 12px;
-                            }
-                            @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
-                              content: linear-gradient(to right, #0078d4, #0078d4);
-                              opacity: ;
-                            }
-                      />
-                      <div
-                        class=
-
-                            {
-                              -moz-osx-font-smoothing: grayscale;
-                              -webkit-font-smoothing: antialiased;
-                              color: #323130;
-                              font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
-                              font-size: 12px;
-                              font-weight: 400;
-                              line-height: 16px;
-                              opacity: ;
-                            }
-                      />
+                      >
+                        undefined
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -4948,10 +4646,8 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
           &:focus {
             outline: none;
           }
-          {
-            overflow: auto;
-          }
-      data-focuszone-id="FocusZone5"
+
+      data-focuszone-id="FocusZone4"
       data-tabster="{\\"uncontrolled\\": {}}"
     >
       <svg
@@ -4973,17 +4669,17 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
                 font-size: 10px;
                 font-weight: 600;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
-                fill: rgb(179, 179, 179);
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& text {
+                fill: CanvasText;
               }
               & line {
                 opacity: 0.2;
                 stroke: #323130;
                 width: 1px;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& line {
                 opacity: 0.1;
-                stroke: rgb(179, 179, 179);
+                stroke: CanvasText;
               }
               & path {
                 display: none;
@@ -5033,7 +4729,7 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
               fill="currentColor"
               y="10"
             >
-              5,000
+              5000
             </text>
           </g>
           <g
@@ -5174,8 +4870,8 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
                 font-size: 10px;
                 font-weight: 600;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& text {
-                fill: rgb(179, 179, 179);
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& text {
+                fill: CanvasText;
               }
               & path {
                 display: none;
@@ -5184,9 +4880,9 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
                 opacity: 0.2;
                 stroke: #323130;
               }
-              @media screen and (-ms-high-contrast: white-on-black), screen and (forced-colors: active) and (prefers-color-scheme: dark){& line {
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& line {
                 opacity: 0.1;
-                stroke: rgb(179, 179, 179);
+                stroke: CanvasText;
               }
           fill="none"
           font-family="sans-serif"
@@ -5197,13 +4893,13 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
         >
           <path
             class="domain"
-            d="M-6,257.5H0.5V20.5H-6"
+            d="M-6,241.5H0.5V36.5H-6"
             stroke="currentColor"
           />
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,257.5)"
+            transform="translate(0,241.5)"
           >
             <line
               stroke="currentColor"
@@ -5234,7 +4930,7 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,210.10000000000002)"
+            transform="translate(0,200.5)"
           >
             <line
               stroke="currentColor"
@@ -5265,7 +4961,7 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,162.7)"
+            transform="translate(0,159.5)"
           >
             <line
               stroke="currentColor"
@@ -5296,7 +4992,7 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,115.30000000000001)"
+            transform="translate(0,118.5)"
           >
             <line
               stroke="currentColor"
@@ -5327,7 +5023,7 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,67.89999999999999)"
+            transform="translate(0,77.49999999999999)"
           >
             <line
               stroke="currentColor"
@@ -5358,7 +5054,7 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
           <g
             class="tick"
             opacity="1"
-            transform="translate(0,20.5)"
+            transform="translate(0,36.5)"
           >
             <line
               stroke="currentColor"
@@ -5389,7 +5085,7 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
         </g>
         <g>
           <rect
-            aria-label="2020/04/30. 20%."
+            aria-label="2020/04/30. 10%."
             aria-labelledby="toolTipcallout0"
             class=
 
@@ -5397,32 +5093,14 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
                   opacity: ;
                 }
             data-is-focusable="true"
-            fill="#002050"
-            height="32"
+            fill="#0078d4"
+            height="16"
             role="img"
             rx="0"
             tabindex="0"
-            width="295"
+            width="147.5"
             x="40"
-            y="4"
-          />
-          <rect
-            aria-label="2020/04/30. 37%."
-            aria-labelledby="toolTipcallout0"
-            class=
-
-                {
-                  opacity: ;
-                }
-            data-is-focusable="true"
-            fill="#00188f"
-            height="32"
-            role="img"
-            rx="0"
-            tabindex="-1"
-            width="368.75"
-            x="40"
-            y="98.80000000000001"
+            y="212.5"
           />
           <rect
             aria-label="2020/04/30. 88%."
@@ -5434,16 +5112,16 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
                 }
             data-is-focusable="true"
             fill="#00bcf2"
-            height="32"
+            height="16"
             role="img"
             rx="0"
             tabindex="-1"
             width="590"
             x="40"
-            y="179.38"
+            y="179.7"
           />
           <rect
-            aria-label="2020/04/30. 10%."
+            aria-label="2020/04/30. 37%."
             aria-labelledby="toolTipcallout0"
             class=
 
@@ -5451,14 +5129,32 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
                   opacity: ;
                 }
             data-is-focusable="true"
-            fill="#0078d4"
-            height="32"
+            fill="#00188f"
+            height="16"
             role="img"
             rx="0"
             tabindex="-1"
-            width="147.5"
+            width="368.75"
             x="40"
-            y="217.3"
+            y="110"
+          />
+          <rect
+            aria-label="2020/04/30. 20%."
+            aria-labelledby="toolTipcallout0"
+            class=
+
+                {
+                  opacity: ;
+                }
+            data-is-focusable="true"
+            fill="#002050"
+            height="16"
+            role="img"
+            rx="0"
+            tabindex="-1"
+            width="295"
+            x="40"
+            y="28"
           />
         </g>
       </svg>
@@ -5500,7 +5196,7 @@ exports[`HorizontalBarChartWithAxis - mouse events Should render callout correct
                     &:focus {
                       outline: none;
                     }
-                data-focuszone-id="FocusZone6"
+                data-focuszone-id="FocusZone5"
                 data-tabster="{\\"uncontrolled\\": {}}"
                 role="listbox"
               >
